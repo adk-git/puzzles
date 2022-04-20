@@ -30,9 +30,9 @@ void main() {
   // print(datesforIftar(12, 89));
 
   //                                      {Task_5}
-  // List<int>? numbers = [1,9,2,8,3,7,4,6,5];
+  List<int>? numbers = [1, 9, 2, 8, 3, 7, 4, 6, 5];
   // minSumma(numbers, 35);
-  // minSumma(numbers, 44);
+  minSumma(numbers, 44);
 
   //                                      {Task_6}
   // List<int> numbers = [1, 5, 4, 2, 3];
@@ -82,46 +82,49 @@ void main() {
 //   }
 // }
 //                                       {Task_5}
-//
-// void minSumma(List<int> numbers, int summa) {
-//   int summaList = 0;
-//   int resultSum = 0;
-//   int timeNum = 0;
-//   List<int> reverseNumber = [];
-//   numbers.sort();
-//   reverseNumber = List.from(numbers.reversed);
-//   if (numbers.isEmpty || summa == 0) {
-//     print("0");
-//   } else {
-//     for (var num in numbers) {
-//       summaList += num;
-//     }
-//     if (summaList < summa) {
-//       print("Summa of List $summaList : Summa : $summa");
-//     } else if (summaList == summa) {
-//       for (int i = 0; i < numbers.length; i++) {
-//         if (numbers[i] != 0) {
-//           summaList -= numbers[i];
-//           print("Summa of List $summaList : Summa : $summa");
-//           break;
-//         }
-//       }
-//     } else if (summaList > summa) {
-//       for (int i = 0; i < reverseNumber.length; i++) {
-//         if (reverseNumber[i] != 0) {
-//           summaList -= reverseNumber[i];
-//           resultSum += reverseNumber[i];
-//           timeNum = reverseNumber[i];
-//
-//           if (resultSum > summa) {
-//             print("Summa of List: ${resultSum - timeNum} || Summa : $summa");
-//             break;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
+
+void minSumma(List<int> numbers, int summa) {
+  int summaList = 0;
+  int resultSum = 0;
+  int timeNum = 0;
+  List<int> reverseNumber = [];
+  numbers.sort();
+  reverseNumber = List.from(numbers.reversed);
+  if (numbers.isEmpty || summa == 0) {
+    print("0");
+  } else {
+    for (var num in numbers) {
+      summaList += num;
+    }
+    if (summaList < summa) {
+      print("Summa of List $summaList : Summa : $summa");
+    } else if (summaList == summa) {
+      for (int i = 0; i < numbers.length; i++) {
+        if (numbers[i] != 0) {
+          summaList -= numbers[i];
+          print("Summa of List $summaList : Summa : $summa");
+          break;
+        }
+      }
+    } else if (summaList > summa) {
+      for (int i = 0; i < reverseNumber.length; i++) {
+        if (reverseNumber[i] != 0) {
+          summaList -= reverseNumber[i];
+          resultSum += reverseNumber[i];
+          numbers.remove(reverseNumber[i]);
+
+          timeNum = reverseNumber[i];
+
+          if (resultSum > summa) {
+            print("Summa of List: ${resultSum - timeNum} || Summa : $summa");
+            print(numbers);
+            break;
+          }
+        }
+      }
+    }
+  }
+}
 
 //                                    {Task_6}
 
